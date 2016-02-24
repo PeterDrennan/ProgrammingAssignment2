@@ -5,36 +5,35 @@
 ## set inverse
 ## get inverse
 
-
 makeCacheMatrix <- function(x = matrix()) {
-+       m <- NULL
-+       set <- function(y) {
-+             x <<- y
-+             m <<- NULL
-+       }
-+       get <- function() x
-+       setinverse <- function(solve) m <<- solve
-+       getinverse <- function() m
-+       list(set = set, get = get,
-+            setinverse = setinverse,
-+            getinverse = getinverse)
-
+       m <- NULL
+     set <- function(y) {
+            x <<- y
+             m <<- NULL
+      }
+       get <- function() x
+       setinverse <- function(solve) m <<- solve
+       getinverse <- function() m
+       list(set = set, get = get,
+            setinverse = setinverse,
+            getinverse = getinverse)
+ }
 
 ## CacheSolve calculates the inverse of the matrix from the previous 
 ##function. CacheSolve will get the inverse from the cache if it has
 ##already been solved, and if the matrix is still the same. 
 
 cacheSolve <- function(x, ...) {
-+       m <- x$getinverse()
-+       if(!is.null(m)) {
-+             message("getting cached data")
-+             return(m)
-+       }
-+       data <- x$get()
-+       m <- solve(data, ...)
-+       x$setinverse(m)
-+       m
-+ }
+      m <- x$getinverse()
+       if(!is.null(m)) {
+             message("getting cached data")
+             return(m)
+       }
+       data <- x$get()
+       m <- solve(data, ...)
+       x$setinverse(m)
+       m
+ }
 
 ##TEST IT OUT
 z <- diag(8,4)
@@ -69,3 +68,6 @@ q <-diag(10,3)
 [1,]  0.1  0.0  0.0
 [2,]  0.0  0.1  0.0
 [3,]  0.0  0.0  0.1
+
+
+
