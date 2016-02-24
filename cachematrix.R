@@ -78,18 +78,6 @@ CachedMarix <- makeCacheMatrix(z)
 ## for example
 ##this is the inverse - inverse of 8 is 1/7 or 0.125.
 
-q <-diag(10,3)
-q
-     [,1] [,2] [,3]
-[1,]   10    0    0
-[2,]    0   10    0
-[3,]    0    0   10
-CachedMarix <- makeCacheMatrix(q)
-cacheSolve(CachedMarix)
-     [,1] [,2] [,3]
-[1,]  0.1  0.0  0.0
-[2,]  0.0  0.1  0.0
-[3,]  0.0  0.0  0.1
 
 
 
